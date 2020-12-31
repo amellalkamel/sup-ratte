@@ -1,9 +1,10 @@
 .sociaux {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   border: 1px solid white;
-  height: 150px;
+  height: 200px;
   background-color: #02122d;
 }
 .cercle {
@@ -11,9 +12,13 @@
   justify-content: center;
   align-items: center;
   margin: 20px;
-  height: 28px;
-  width: 28px;
+  height: 40px;
+  width: 40px;
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 1);
   border-radius: 50%;
+  background-color: #3b4f68;
+}
+.button-add-new-user-gray {
+  color: orange;
 }

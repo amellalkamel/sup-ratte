@@ -1,4 +1,12 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
 .contact {
   border: 1px solid white;
   height: 200px;
+}
+.bottom_contact {
+  display: flex;
+  justify-content: center;
 }

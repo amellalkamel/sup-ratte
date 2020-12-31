@@ -1,5 +1,5 @@
-import React from "react";
-import "./header.css";
+import React from 'react';
+import './header.css';
 class Header extends React.Component {
   constructor(props) {
     super(props);
@@ -8,7 +8,7 @@ class Header extends React.Component {
     return (
       <div className="header">
         <center>
-          <h1>Supérette el BARRAKA</h1>
+          <h1>Supérette Kamatchou</h1>
         </center>
         <center>
           <h6>46, station rghaia chete, Reghaia, Alger</h6>
