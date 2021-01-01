@@ -1,5 +1,6 @@
 .footer {
   border: 1px solid white;
-  height: 200px;
+  height: 400px;
   position: relative;
+  background-color: #efefef;
 }
