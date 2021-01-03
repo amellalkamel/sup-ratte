@@ -1,0 +1,31 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.panier {
+  width: 3.5%;
+  height: 5.5%;
+  position: fixed;
+  top: 3%;
+  right: 3%;
+  background-color: white;
+  box-shadow: 10px 10px 25px -16px rgba(0, 0, 0, 0.75);
+  border-radius: 5px;
+  z-index: 1;
+}
+.circle {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  top: 0;
+  right: 0;
+  transform: translate(20%, -20%);
+  background-color: red;
+  position: absolute;
+}
+.faShoppingCart {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

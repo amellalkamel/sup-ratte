@@ -1,11 +1,11 @@
 * {
   margin: 0px;
   padding: 0px;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }
 .header {
   border: 1px solid white;
-  height: 200px;
+  height: 250px;
   background-color: white;
   position: relative;
 }
@@ -25,7 +25,7 @@ nav li {
   text-align: center; /*Centre le texte dans les éléments de menu*/
 }
 nav ul::after {
-  content: '';
+  content: "";
   display: table;
   clear: both;
 }
@@ -40,4 +40,5 @@ nav a {
 nav a:hover {
   color: orange;
   border-bottom: 2px solid gold;
+  text-decoration: none;
 }

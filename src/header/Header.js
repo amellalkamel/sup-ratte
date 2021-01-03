@@ -1,5 +1,8 @@
-import React from 'react';
-import './header.css';
+import React from "react";
+import InputGroup from "react-bootstrap/InputGroup";
+import FormControl from "react-bootstrap/FormControl";
+import "./header.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 class Header extends React.Component {
   constructor(props) {
     super(props);
@@ -31,7 +34,14 @@ class Header extends React.Component {
               <a href="#">Comment Ca Marche ?</a>
             </li>
             <li>
-              <input></input>
+              <InputGroup className="mb-3">
+                <InputGroup.Prepend></InputGroup.Prepend>
+                <FormControl
+                  placeholder="Rechercher des Produits"
+                  aria-label="Recherche"
+                  aria-describedby="basic-addon1"
+                />
+              </InputGroup>
             </li>
             <li>0.00 DA</li>
           </ul>

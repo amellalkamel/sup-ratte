@@ -6,6 +6,7 @@
   border: 1px solid white;
   height: 200px;
   background-color: #02122d;
+  margin-top: -93px;
 }
 .cercle {
   display: flex;
