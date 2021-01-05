@@ -5,7 +5,11 @@ class Main extends React.Component {
     super(props);
   }
   render() {
-    return <div className="main">main</div>;
+    return (
+      <div className="main">
+        <div className="back"></div>
+      </div>
+    );
   }
 }
 

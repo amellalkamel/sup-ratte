@@ -1,6 +1,15 @@
 .main {
   border: 1px solid white;
-  height: 800px;
+  height: 1600px;
   background-color: #efefef;
   position: relative;
+}
+.back {
+  border: 1px solid white;
+  background-color: white;
+  position: absolute;
+  width: 70%;
+  height: 80%;
+  margin-top: 8%;
+  margin-left: 15%;
 }
