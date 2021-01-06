@@ -1,21 +1,34 @@
 import "reflect-metadata";
 import {createConnection} from "typeorm";
-import {User} from "./entity/User";
+import { Produit } from "./entity/Produit" ;
+import { Categorie } from "./entity/Categorie";
 
 createConnection().then(async connection => {
+    const categorie = new Categorie()
+    console.log("inserting new categorie into database")
+    categorie.nomCategorie="Epicrie"
+    await connection.manager.save(categorie)
+    console.log("saved a new categirie with id: "+categorie.id)
+    
+    const categories =await connection.manager.find(Categorie)
+    console.log("Loding categories", categories)
+    
+    }).catch(error => console.log(error))
 
-    console.log("Inserting a new user into the database...");
-    const user = new User();
-    user.firstName = "Timber";
-    user.lastName = "Saw";
-    user.age = 25;
-    await connection.manager.save(user);
-    console.log("Saved a new user with id: " + user.id);
+// createConnection().then( async connection => {
+//     console.log("inserting new produit into database")
+//     const produit = new Produit();
+    
+//     produit.nomProduit="condia"
+//     produit.prix=100.0
+//     produit.quantite=10
+//     produit.image="https://www.tchinlait.com/file/img/produits/produits-candia-algerie-Lait-partiellement-AecrAemAe-dAelactosAe..png"
+//     await connection.manager.save(produit)
+//     console.log("saved a new product with id: "+produit.id)
 
-    console.log("Loading users from the database...");
-    const users = await connection.manager.find(User);
-    console.log("Loaded users: ", users);
+//     console.log("Loading product from the database...");
+//     const produits = await connection.manager.find(Produit);
+//     console.log("Loaded products: ", produits);
+// }).catch(error => console.log(error))
 
-    console.log("Here you can setup and run express/koa/any other framework.");
 
-}).catch(error => console.log(error));
