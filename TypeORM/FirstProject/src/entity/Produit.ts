@@ -17,8 +17,6 @@ export class Produit {
     @Column()
     image:string
 
-
-
-    // @ManyToOne(() => Categorie, categorie => categorie.produit)
-    // categorie = Categorie
+    @ManyToOne(() => Categorie, categorie => categorie.produit)
+    categorie : Categorie
 }
