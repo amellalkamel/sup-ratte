@@ -1,5 +1,4 @@
 import { Column, Entity , PrimaryGeneratedColumn,OneToMany } from "typeorm"
-import { Produit } from "./Produit";
 import { SousCategorie } from "./SousCategorie";
 
 @Entity()
@@ -10,8 +9,8 @@ export class Categorie {
     @Column()
     nomCategorie:string
 
-    @OneToMany(() => Produit , produit => produit.categorie)
-    produit : Produit[];
+    @Column()
+    img:string
 
     @OneToMany(()=> SousCategorie, soucategorie => soucategorie.categorie)
     soucategorie: SousCategorie[]
