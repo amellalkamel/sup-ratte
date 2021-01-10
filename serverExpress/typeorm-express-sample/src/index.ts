@@ -2,7 +2,12 @@ import "reflect-metadata";
 import * as express from "express";
 import * as bodyParser from "body-parser";
 import {Request, Response} from "express";
+
 import {Routes} from "./routes";
+import { Routes_cat } from "./routes";
+import { Routes_sous_cat } from "./routes";
+import { Routes_produit } from "./routes";
+
 import {User} from "./entity/User";
 import {createConnection,getConnection} from "typeorm";
 import { Produit } from "./entity/Produit" ;
@@ -28,6 +33,41 @@ createConnection().then(async connection => {
         });
     });
 
+    Routes_cat.forEach(route => {
+      (app as any)[route.method](route.route, (req: Request, res: Response, next: Function) => {
+          const result = (new (route.controller as any))[route.action](req, res, next);
+          if (result instanceof Promise) {
+              result.then(result => result !== null && result !== undefined ? res.send(result) : undefined);
+
+          } else if (result !== null && result !== undefined) {
+              res.json(result);
+          }
+      });
+  });
+
+  Routes_sous_cat.forEach(route => {
+    (app as any)[route.method](route.route, (req: Request, res: Response, next: Function) => {
+        const result = (new (route.controller as any))[route.action](req, res, next);
+        if (result instanceof Promise) {
+            result.then(result => result !== null && result !== undefined ? res.send(result) : undefined);
+
+        } else if (result !== null && result !== undefined) {
+            res.json(result);
+        }
+    });
+});
+
+Routes_produit.forEach(route => {
+  (app as any)[route.method](route.route, (req: Request, res: Response, next: Function) => {
+      const result = (new (route.controller as any))[route.action](req, res, next);
+      if (result instanceof Promise) {
+          result.then(result => result !== null && result !== undefined ? res.send(result) : undefined);
+
+      } else if (result !== null && result !== undefined) {
+          res.json(result);
+      }
+  });
+});
     // setup express app here
     // ...
 
@@ -147,40 +187,40 @@ createConnection().then(async connection => {
     console.log("Loding categories", categorieBois)
 
       /* add sous categorie1 */
-    const soucategorie = new SousCategorie()
-    soucategorie.nomSouCategorie="Accessoires de Ménage"
-    soucategorie.img="https://lh3.googleusercontent.com/proxy/FyqGGDM-0JxzoyoLGKhuwnpjJcGsxDSGnFm1VGz60P0czX7O0Yi6Y-GIGqZtAQ7-8FlQJkMjLxsOI0ksEXR5geek_NFpS_yLSTbV7YoRWk2LJ2KA-VqpAq-P73-UJeT8y47un0M2rLjZ72gRQtAUVPLpKQ"
-    // soucategorie.produit=[produit,produit2]
-    soucategorie.categorie= categorieBois
-    await connection.manager.save(soucategorie)
-    console.log("saved a new soucategorie with id: "+soucategorie.id)
+    // const soucategorie = new SousCategorie()
+    // soucategorie.nomSouCategorie="Accessoires de Ménage"
+    // soucategorie.img="https://lh3.googleusercontent.com/proxy/FyqGGDM-0JxzoyoLGKhuwnpjJcGsxDSGnFm1VGz60P0czX7O0Yi6Y-GIGqZtAQ7-8FlQJkMjLxsOI0ksEXR5geek_NFpS_yLSTbV7YoRWk2LJ2KA-VqpAq-P73-UJeT8y47un0M2rLjZ72gRQtAUVPLpKQ"
+    // // soucategorie.produit=[produit,produit2]
+    // soucategorie.categorie= categorieBois
+    // await connection.manager.save(soucategorie)
+    // console.log("saved a new soucategorie with id: "+soucategorie.id)
 
-      /* add sous categorie2 */
-    const soucategorie2 = new SousCategorie()
-    soucategorie2.nomSouCategorie="Désodorisants & Insecticides"
-    soucategorie2.img="https://lh3.googleusercontent.com/proxy/FyDjOOaf5shAJRW9Auz5gv7VnuOQnTgS1_DjYrwjXeSK76mu7PYaifMCc2sQ7HoOdCcqJgATk9SDS2My--KMbXh4uZFGRanEs8oICG3S0Qzipg"
-    soucategorie2.categorie=categorieBois
-    // soucategorie.produit=[produit,produit2]
-    await connection.manager.save(soucategorie2)
-    console.log("saved a new soucategorie with id: "+soucategorie2.id)
+    //   /* add sous categorie2 */
+    // const soucategorie2 = new SousCategorie()
+    // soucategorie2.nomSouCategorie="Désodorisants & Insecticides"
+    // soucategorie2.img="https://lh3.googleusercontent.com/proxy/FyDjOOaf5shAJRW9Auz5gv7VnuOQnTgS1_DjYrwjXeSK76mu7PYaifMCc2sQ7HoOdCcqJgATk9SDS2My--KMbXh4uZFGRanEs8oICG3S0Qzipg"
+    // soucategorie2.categorie=categorieBois
+    // // soucategorie.produit=[produit,produit2]
+    // await connection.manager.save(soucategorie2)
+    // console.log("saved a new soucategorie with id: "+soucategorie2.id)
 
-      /* add sous categorie3 */
-    const soucategorie3 = new SousCategorie()
-    soucategorie3.nomSouCategorie="Lessive"
-    soucategorie3.img="https://th.bing.com/th/id/OIP.XrP_9Lg6XWG4FB3R9Y--FQHaHa?pid=Api&rs=1"
-    soucategorie3.categorie=categorieBois
-    // soucategorie.produit=[produit,produit2]
-    await connection.manager.save(soucategorie3)
-    console.log("saved a new soucategorie with id: "+soucategorie3.id)
+    //   /* add sous categorie3 */
+    // const soucategorie3 = new SousCategorie()
+    // soucategorie3.nomSouCategorie="Lessive"
+    // soucategorie3.img="https://th.bing.com/th/id/OIP.XrP_9Lg6XWG4FB3R9Y--FQHaHa?pid=Api&rs=1"
+    // soucategorie3.categorie=categorieBois
+    // // soucategorie.produit=[produit,produit2]
+    // await connection.manager.save(soucategorie3)
+    // console.log("saved a new soucategorie with id: "+soucategorie3.id)
 
-      /* add sous categorie4 */
-      const soucategorie4 = new SousCategorie()
-      soucategorie4.nomSouCategorie="Nettoyants Lave-vaisselles"
-      soucategorie4.img="https://img.grouponcdn.com/deal/nyhYnjhaPXtJr4NHjBvbWLT6Q2e/ny-963x577/v1/c700x420.jpg"
-      soucategorie4.categorie=categorieBois
-      // soucategorie.produit=[produit,produit2]
-      await connection.manager.save(soucategorie4)
-      console.log("saved a new soucategorie with id: "+soucategorie4.id)
+    //   /* add sous categorie4 */
+    //   const soucategorie4 = new SousCategorie()
+    //   soucategorie4.nomSouCategorie="Nettoyants Lave-vaisselles"
+    //   soucategorie4.img="https://img.grouponcdn.com/deal/nyhYnjhaPXtJr4NHjBvbWLT6Q2e/ny-963x577/v1/c700x420.jpg"
+    //   soucategorie4.categorie=categorieBois
+    //   // soucategorie.produit=[produit,produit2]
+    //   await connection.manager.save(soucategorie4)
+    //   console.log("saved a new soucategorie with id: "+soucategorie4.id)
 
     console.log("Express server has started on port 3000. Open http://localhost:3000/users to see results");
 

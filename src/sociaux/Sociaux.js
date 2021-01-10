@@ -1,13 +1,13 @@
-import React from 'react';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebook,
   faTwitter,
   faGooglePlus,
   faInstagram,
   faFacebookMessenger,
-} from '@fortawesome/free-brands-svg-icons';
-import './sociaux.css';
+} from "@fortawesome/free-brands-svg-icons";
+import "./sociaux.css";
 
 class Sociaux extends React.Component {
   constructor(props) {
@@ -16,36 +16,36 @@ class Sociaux extends React.Component {
   render() {
     return (
       <div className="sociaux">
-        <div class="cercle">
-          {' '}
+        <div className="cercle">
+          {" "}
           <FontAwesomeIcon
             icon={faFacebook}
             className="button-add-new-user-gray"
           />
         </div>
-        <div class="cercle">
-          {' '}
+        <div className="cercle">
+          {" "}
           <FontAwesomeIcon
             icon={faTwitter}
             className="button-add-new-user-gray"
           />
         </div>
-        <div class="cercle">
-          {' '}
+        <div className="cercle">
+          {" "}
           <FontAwesomeIcon
             icon={faGooglePlus}
             className="button-add-new-user-gray"
           />
         </div>
-        <div class="cercle">
-          {' '}
+        <div className="cercle">
+          {" "}
           <FontAwesomeIcon
             icon={faFacebookMessenger}
             className="button-add-new-user-gray"
           />
         </div>
-        <div class="cercle">
-          {' '}
+        <div className="cercle">
+          {" "}
           <FontAwesomeIcon
             icon={faInstagram}
             className="button-add-new-user-gray"
